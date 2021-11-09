@@ -160,11 +160,11 @@ class Profile(commands.Cog):
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
             if option and option != 'Vibe':
-                embed.add_option(name=option, value=value, inline=True)
+                embed.add_field(name=option, value=value, inline=True)
             if option == 'Vibe':
                 if value != "":
                     pic = value                
-                    embed.add_option(name=option, value="My curent vibe is . . .*/n<:sh_space:755971083210981426>", inline=False)
+                    embed.add_field(name=option, value="My curent vibe is . . .*/n<:sh_space:755971083210981426>", inline=False)
                 else:
                     pic = user.avatar_url
                 embed.set_image(url=pic)
@@ -194,7 +194,7 @@ class Profile(commands.Cog):
                     memberName = ctx.guild.get_member(int(member)).display_name
                 except:
                     continue
-                embed.add_option(name=memberName,
+                embed.add_field(name=memberName,
                                 value="\n".join(values),
                                 inline=False)
         await ctx.send(embed=embed)
