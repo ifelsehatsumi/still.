@@ -183,7 +183,7 @@ class Profile(commands.Cog):
                 else:
                     pic = user.avatar_url
                 embed.set_image(url=pic)
-            except KeyError:
+            if KeyError:
                 warnings.append(f"Imagine not having a profile. <:ang_giggle:894993173686943754> Type `k,profileoptions` to see a list of stuff you can you add and set one up.")
         embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
