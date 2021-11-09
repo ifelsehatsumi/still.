@@ -51,7 +51,14 @@ class Confession(BaseCog):
             # Send it off to this function so it sends to initiate search after selecting subdomain
             await self.selected_guild(ctx, user_guilds, confession, page)
             return None
-        confession_text = "*“" + confession + "”* — Anonymous"
+
+        confession_text = discord.Embed(
+            description="*“" + confession + "”*",
+            colour=0xfafafa,
+            footer="Anonymous"
+        )
+            
+        #confession_text = "*“" + confession + "”* — Anonymous"
         
         if bool(ctx.guild):
             await ctx.send("Dude, what are you doing?! DM me!")
@@ -72,7 +79,8 @@ class Confession(BaseCog):
         if len(user_guilds) == 0:
             await ctx.author.send("A confessional doesn't exist, yet. Ask staff to set one up!")
         if len(user_guilds) == 1:
-            await self.send_confession(ctx, user_guilds[0], confession_text)
+            #await self.send_confession(ctx, user_guilds[0], confession_text)
+            await self.send_confession(user_guilds[0], ctx.send(embed=confession_text))
         else:
             SELECT_DOMAIN = {"\N{WHITE HEAVY CHECK MARK}": select_guild}
 
