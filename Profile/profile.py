@@ -136,7 +136,7 @@ class Profile(commands.Cog):
                     await ctx.send(f"I can't find '{key}'. <a:pepe_sideeye:894652027387396166>")
                     return
                 await self.conf.user(user).profile.set(profileDict)
-                await ctx.send(f"'{key}' has been **blokT** <:blockt:792967939849453578> j/k you can add it again with `k,profile {key}`. <:hm:893502960464711710>")
+                await ctx.send(f"'{key}' has been **blokT** <:blockt:792967939849453578>\n\nj/k you can add it again with `k,profile {key}`. <:hm:893502960464711710>")
             return
 
         # Filter dict to key(s)
