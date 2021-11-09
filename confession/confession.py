@@ -112,4 +112,4 @@ class Confession(BaseCog):
             return await ctx.author.send("Umm tell the mods I can't post anything.")
             
 
-        await ctx.author.send("Your confession was sent anonymously. <a:pepe_bite_lip:804628368305029151>")
+        await ctx.author.send("Your confession was sent anonymously. <a:pepe_bite_lip:804628368305029151>\n<#907410140683202570>")
