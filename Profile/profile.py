@@ -160,12 +160,12 @@ class Profile(commands.Cog):
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
             geo = profileDict['Location, TZ']
-            intro = profileDict['Intro']
+            headlinetxt = profileDict['Intro']
             if geo != "":
                 loc = str("*" + geo + "*")
             else:
                 loc = "*Ask me for my location/tz*"   
-            if intro == "":
+            if headlinetxt == "":
                 embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
             if option == 'Intro':
                 if value != "":
