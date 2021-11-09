@@ -159,6 +159,9 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
+            if profileDict.items() == "":
+                warnings.append(f"Imagine not having a profile. <:ang_giggle:894993173686943754> Type `k,profileoptions` to see a list of stuff you can you add and set one up.")
+            return
             if profileDict['Location, TZ'] != "":
                 geo = profileDict['Location, TZ']
                 loc = str("*" + geo + "*")
@@ -183,8 +186,6 @@ class Profile(commands.Cog):
                 else:
                     pic = user.avatar_url
                 embed.set_image(url=pic)
-            if KeyError:
-                warnings.append(f"Imagine not having a profile. <:ang_giggle:894993173686943754> Type `k,profileoptions` to see a list of stuff you can you add and set one up.")
         embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
 
