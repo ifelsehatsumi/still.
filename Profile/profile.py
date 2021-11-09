@@ -177,8 +177,10 @@ class Profile(commands.Cog):
                         headline = value                
                         embed.add_field(name="\n*“" + headline + "”*", value=loc, inline=False)
                 else:
-                    embed.add_field(name="Flourishing in . . .", value=loc, inline=False)         
-            if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ':
+                    embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
+            if option == 'Bio':
+                embed.add_field(name=option, value=value, inline=False)       
+            if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ' and option != Bio:
                 embed.add_field(name=option, value=value, inline=True)
             if option == 'Vibe':
                 if value != "":
