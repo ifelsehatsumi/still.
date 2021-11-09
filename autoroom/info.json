@@ -1,0 +1,19 @@
+{
+    "name": "AutoRoom",
+    "author": [
+        "ifelsehatsumi"
+    ],
+    "short": "Automatic voice channel management.",
+    "description": "Allows for designating voice channels as Private Room creators. When a user joins a Private Room creator, they will be moved into their own private voice channel (Private Room). Once all users have left the Private Room, it is automatically deleted.",
+    "install_msg": "Thanks for installing PrivateRooms!",
+    "tags": [
+        "audio",
+        "auto",
+        "automatic",
+        "channel",
+        "room",
+        "voice"
+    ],
+    "min_bot_version": "1.0.0",
+    "end_user_data_statement": "This cog does not persistently store data or metadata about users."
+}
