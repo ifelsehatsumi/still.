@@ -92,10 +92,11 @@ class Confession(BaseCog):
     async def selected_guild(self, ctx, user_guilds, confession, page):
 
         confession_guild = user_guilds[page]
-        await self.send_confession(ctx, confession_guild, "*" + confession + "* — Anonymous")
+        confession_text = "*" + confession + "* — Anonymous"
+        await self.send_confession(ctx, confession_guild, confession_text)
 
-    async def send_confession(self, ctx, confession_guild, "*" + confession + "* — Anonymous"):
-
+    async def send_confession(self, ctx, confession_guild, confession_text):
+        
         rooms = await self.config.guild(confession_guild).confession_rooms()
 
         for channel in confession_guild.text_channels:
@@ -106,7 +107,7 @@ class Confession(BaseCog):
             return await ctx.author.send("A confessional doesn't exist, yet. Ask staff to set one up!")
 
         try:
-            await ctx.bot.send_filtered(destination=confession_room, content= "*" + confession + "* — Anonymous")
+            await ctx.bot.send_filtered(destination=confession_room, content=confession_text)
         except discord.errors.Forbidden:
             return await ctx.author.send("Umm tell the mods I can't post anything.")
             
