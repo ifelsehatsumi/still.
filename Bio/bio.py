@@ -117,7 +117,7 @@ class Bio(commands.Cog):
 
     async def _bio(self, ctx: commands.Context, user: Optional[str] = None, *args):
         bioFields = await self.conf.guild(ctx.guild).biofields()
-        server = ctx.guild.name
+        server = ctx.message.guild.name
         key = None
         if re.search(r'<@!\d+>', str(user)):
             user = ctx.guild.get_member(int(user[3:-1]))
@@ -182,7 +182,7 @@ class Bio(commands.Cog):
             if field == 'CoverPhoto':
                 cover = value
                 embed.set_image(url=cover)
-        embed.set_color = ctx.user.color
+        embed.set_colour = ctx.author.colour
         await ctx.send(embed=embed)
 
     @commands.command()
