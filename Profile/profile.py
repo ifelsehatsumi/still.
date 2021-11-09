@@ -159,7 +159,7 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
-            if option != 'Vibe':
+            if option and option != 'Vibe':
                 embed.add_option(name=option, value=value, inline=True)
             if option == 'Vibe':
                 if value != "":
