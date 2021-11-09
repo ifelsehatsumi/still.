@@ -155,7 +155,7 @@ class Profile(commands.Cog):
             profileDict = data
         embed = discord.Embed()
         embed.title = f"{user.display_name}"
-        embed.description = server + "/n<:sh_space:755971083210981426>"
+        embed.description = server + "\n\n"
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
@@ -164,7 +164,7 @@ class Profile(commands.Cog):
             if option == 'Vibe':
                 if value != "":
                     pic = value                
-                    embed.add_field(name=option, value="My curent vibe is . . .*/n<:sh_space:755971083210981426>", inline=False)
+                    embed.add_field(name=option, value="My curent vibe is . . .*\n<:sh_space:755971083210981426>", inline=False)
                 else:
                     pic = user.avatar_url
                 embed.set_image(url=pic)
