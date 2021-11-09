@@ -171,7 +171,7 @@ class Profile(commands.Cog):
             if option == 'Intro':
                 if value != "":
                     headline = value                
-                    embed.add_field(name="*“" + headline + "”*", value="\n", inline=False)
+                    embed.add_field(name="*“" + headline + "”*", value="<:sh_space:755971083210981426>", inline=False)
         embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
 
