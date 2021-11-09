@@ -101,9 +101,11 @@ class Confession(BaseCog):
     async def selected_guild(self, ctx, user_guilds, confession, page):
 
         confession_guild = user_guilds[page]
-        await self.send_confession(ctx, confession_guild, confession_text)
+        #await self.send_confession(ctx, confession_guild, confession_text)
+        await self.send_confession(confession_guild, ctx.send(embed=confession_text))
 
-    async def send_confession(self, ctx, confession_guild, confession_text):
+    #async def send_confession(self, ctx, confession_guild, confession_text):
+    async def send_confession(self, confession_guild, ctx.send(embed=confession_text)):
         
         rooms = await self.config.guild(confession_guild).confession_rooms()
 
