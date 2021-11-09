@@ -17,7 +17,7 @@ class Confession(BaseCog):
     @commands.command()
     @checks.admin_or_permissions(manage_guild=True)
     async def confessionset(self, ctx, *, channel: discord.TextChannel):
-        """Set a confession room"""
+        """Set a confessional"""
 
         rooms = await self.config.guild(ctx.guild).confession_rooms()
 
@@ -25,23 +25,23 @@ class Confession(BaseCog):
             return await ctx.send("No channel mentioned.")
 
         await self.config.guild(ctx.guild).confession_rooms.set(channel.id)
-        await ctx.send("The room has been set.")
+        await ctx.send("Confessional set. <:pepe_halo:802951139061399603>")
 
     @commands.command()
     @checks.admin_or_permissions(manage_guild=True)
     async def confessionunset(self, ctx):
-        """Unset a confession room"""
+        """Unset a confessional"""
 
         rooms = await self.config.guild(ctx.guild).confession_rooms()
 
         await self.config.guild(ctx.guild).confession_rooms.set("")
-        await ctx.send("The room has been unset.")
+        await ctx.send("The room has been unset. <a:pepe_why:894705860134199316>")
 
     @commands.command()
     async def confess(self, ctx, *, confession):
-        """Confess your dirty sins
+        """Confess your deepest, darkest secrets.
 
-        It'll ask you which guild to confess in if you have more than one with a confession
+        I'll ask you which server to confess in if you have more than one
         """
 
         async def select_guild(ctx: commands.Context, pages: list, controls: dict, message: discord.Message, page: int, timeout: float, emoji: str):
@@ -53,7 +53,7 @@ class Confession(BaseCog):
             return None
 
         if bool(ctx.guild):
-            await ctx.send("You should do this in DMs!")
+            await ctx.send("Dude, what are you doing?! DM me!")
             try :
                 await ctx.message.delete()
             except:
@@ -69,7 +69,7 @@ class Confession(BaseCog):
                     user_guilds.append(guild)
 
         if len(user_guilds) == 0:
-            await ctx.author.send("No server with a confession room, ask your server owners to set it up!")
+            await ctx.author.send("A confessional doesn't exist, yet. Ask staff to set one up!")
         if len(user_guilds) == 1:
             await self.send_confession(ctx, user_guilds[0], confession)
         else:
@@ -92,9 +92,9 @@ class Confession(BaseCog):
     async def selected_guild(self, ctx, user_guilds, confession, page):
 
         confession_guild = user_guilds[page]
-        await self.send_confession(ctx, confession_guild, confession)
+        await self.send_confession(ctx, confession_guild, "*" + confession + "* — Anonymous")
 
-    async def send_confession(self, ctx, confession_guild, confession):
+    async def send_confession(self, ctx, confession_guild, "*" + confession + "* — Anonymous"):
 
         rooms = await self.config.guild(confession_guild).confession_rooms()
 
@@ -103,12 +103,12 @@ class Confession(BaseCog):
                 confession_room = channel
 
         if not confession_room:
-            return await ctx.author.send("The confession room does not appear to exist.")
+            return await ctx.author.send("A confessional doesn't exist, yet. Ask staff to set one up!")
 
         try:
-            await ctx.bot.send_filtered(destination=confession_room, content=confession)
+            await ctx.bot.send_filtered(destination=confession_room, content= "*" + confession + "* — Anonymous")
         except discord.errors.Forbidden:
-            return await ctx.author.send("I don't have permission to send messages to this room or something went wrong.")
+            return await ctx.author.send("Umm tell the mods I can't post anything.")
             
 
-        await ctx.author.send("Your confession has been sent, you are forgiven now.")
+        await ctx.author.send("Your confession was sent anonymously. :pepe_bite_lip:")
