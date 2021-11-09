@@ -159,10 +159,10 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
-            if profileDict and profileDict['Location, TZ'] != "":
+            if profileDict['Location, TZ'] != "":
                 geo = profileDict['Location, TZ']
                 loc = str("*" + geo + "*")
-                if option and option == 'Intro':
+                if option == 'Intro':
                     if value != "":
                         headline = value                
                         embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)
@@ -170,19 +170,21 @@ class Profile(commands.Cog):
                     embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
             else:
                 loc = "*Ask me for my location/tz*"
-                if option and option == 'Intro':
+                if option == 'Intro':
                     if value != "":
                         headline = value                
                         embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)
             if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ':
                 embed.add_field(name=option, value=value, inline=True)
-            if option and option == 'Vibe':
+            if option == 'Vibe':
                 if value != "":
                     pic = value                
                     embed.add_field(name=option, value="My curent vibe is . . .*\n<:sh_space:755971083210981426>", inline=False)
                 else:
                     pic = user.avatar_url
                 embed.set_image(url=pic)
+            except KeyError:
+                warnings.append(f"Imagine not having a profile. <:ang_giggle:894993173686943754> Type `k,profileoptions` to see a list of stuff you can you add and set one up.")
         embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
 
