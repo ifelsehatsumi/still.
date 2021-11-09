@@ -1,0 +1,9 @@
+{
+  "author" : ["ifelsehatsumi"],
+  "bot_version": [1.0.0],
+  "install_msg" : "Tell your deepest darkest secrets... in private.",
+  "short" : "Send a secret confession",
+  "description" : "Set a confessional in your server where members can post anonymous confessions. Confessions are sent via DM through the bot.",
+  "tags" : ["confession", "anon", "secret"],
+  "hidden" : false
+}
