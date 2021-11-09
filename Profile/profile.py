@@ -28,7 +28,7 @@ class Profile(commands.Cog):
 
     @commands.group(autohelp=False)
     @commands.guild_only()
-    async def profileoptions(self, alias=profileoptions, ctx: commands.Context):
+    async def profileoptions(self, ctx: commands.Context):
         """See available profile options."""
         if ctx.invoked_subcommand is not None:
             return
