@@ -117,6 +117,7 @@ class Bio(commands.Cog):
 
     async def _bio(self, ctx: commands.Context, user: Optional[str] = None, *args):
         bioFields = await self.conf.guild(ctx.guild).biofields()
+        server = await self.conf.guild(ctx.guild)
         key = None
         if re.search(r'<@!\d+>', str(user)):
             user = ctx.guild.get_member(int(user[3:-1]))
@@ -172,14 +173,14 @@ class Bio(commands.Cog):
             bioDict = data
         embed = discord.Embed()
         embed.title = f"{user.display_name}"
-        embed.description = ""
+        embed.description = server
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for field, value in bioDict.items():
             embed.add_field(name=field, value=value, inline=True)
-            if field = 'CoverPhoto':
+            if field == 'CoverPhoto':
                 cover = value
-            embed.set_image(url=cover)
+            embed.set_image(url="'" + cover + "'")
         await ctx.send(embed=embed)
 
     @commands.command()
