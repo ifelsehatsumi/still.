@@ -159,7 +159,7 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
-            if option and option != 'Vibe':
+            if option and option != 'Vibe' and option != 'Intro':
                 embed.add_field(name=option, value=value, inline=True)
             if option == 'Vibe':
                 if value != "":
@@ -168,6 +168,10 @@ class Profile(commands.Cog):
                 else:
                     pic = user.avatar_url
                 embed.set_image(url=pic)
+            if option == 'Intro':
+                if value != "":
+                    headline = value                
+                    embed.add_field(name="*“" + headline + "”*", value="\n", inline=False)
         embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
 
