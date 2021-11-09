@@ -161,17 +161,25 @@ class Profile(commands.Cog):
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
             geo = str(profileDict.get('Location, TZ'))
-            if geo != "":
+            headline = profileDict.get('Intro')
+            if geo != "None":
                 loc = "*" + geo + "*"
+                if headline != "None":
+                    if option == 'Intro':
+                        headline = value                
+                        embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)
+                else:
+                    embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
             else:
                 loc = "*Ask me for my location/tz*"
-            if option == 'Intro' and value != "":
-                headline = value                
-                embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)                
+                if headline != "None":
+                    if option == 'Intro':
+                        headline = value                
+                        embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)
+                else:
+                    embed.add_field(name="Flourishing in . . .", value=loc, inline=False)         
             if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ':
                 embed.add_field(name=option, value=value, inline=True)
-            else:
-                embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
             if option == 'Vibe':
                 if value != "":
                     pic = value                
