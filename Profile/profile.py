@@ -155,7 +155,7 @@ class Profile(commands.Cog):
             profileDict = data
         embed = discord.Embed()
         embed.title = f"{user.display_name}"
-        embed.description = server + "/n/n"
+        embed.description = server + "/n<:sh_space:755971083210981426>"
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
