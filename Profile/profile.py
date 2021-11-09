@@ -168,7 +168,7 @@ class Profile(commands.Cog):
                 else:
                     pic = user.avatar_url
                 embed.set_image(url=pic)
-            if profileDict['%s'] == profileDict['Location, TZ'] and profileDict['Location, TZ'] != "":
+            if profileDict[option] == profileDict['Location, TZ'] and profileDict['Location, TZ'] != "":
                 geo = profileDict['Location, TZ']
                 loc = str("*" + geo + "*")
                 if option == 'Intro':
