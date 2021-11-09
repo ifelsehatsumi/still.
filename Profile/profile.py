@@ -160,27 +160,18 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
-            if len(profileDict['Location, TZ']):
-                try:
-                    if profileDict['Location, TZ'] != "":
-                        geo = profileDict['Location, TZ']
-                        loc = str("*" + geo + "*")
-                        if option == 'Intro':
-                            if value != "":
-                                headline = value                
-                                embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)
-                        else:
-                            embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
-                except:
-                    continue
+            geo = profileDict['Location, TZ']
+            if geo:
+                loc = str("*" + geo + "*")
             else:
                 loc = "*Ask me for my location/tz*"
-                if option == 'Intro':
-                    if value != "":
-                        headline = value                
-                        embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)
+            if option == 'Intro' and value != "":
+                headline = value                
+                embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)                
             if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ':
                 embed.add_field(name=option, value=value, inline=True)
+            else:
+                embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
             if option == 'Vibe':
                 if value != "":
                     pic = value                
@@ -188,8 +179,6 @@ class Profile(commands.Cog):
                 else:
                     pic = user.avatar_url
                 embed.set_image(url=pic)
-            if KeyError:
-                warnings.append(f"Imagine not having a profile. <:ang_giggle:894993173686943754> Type `k,profileoptions` to see a list of stuff you can you add and set one up.")
         embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
 
