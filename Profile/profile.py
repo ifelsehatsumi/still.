@@ -161,9 +161,9 @@ class Profile(commands.Cog):
         for option, value in profileDict.items():
             geo = profileDict['Location, TZ']
             if geo != "":
-                    loc = geo
-                else:
-                    loc = "Ask me for my location/tz"               
+                loc = geo
+            else:
+                loc = "Ask me for my location/tz"               
             if option == 'Intro':
                 if value != "":
                     headline = value                
