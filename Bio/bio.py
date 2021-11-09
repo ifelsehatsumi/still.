@@ -180,7 +180,7 @@ class Bio(commands.Cog):
             embed.add_field(name=field, value=value, inline=True)
             if field == 'CoverPhoto':
                 cover = value
-            embed.set_image(url="'" + cover + "'")
+                embed.set_image(url="'" + cover + "'")
         await ctx.send(embed=embed)
 
     @commands.command()
