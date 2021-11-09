@@ -63,7 +63,7 @@ class Bio(commands.Cog):
         
         USE WITH CAUTION: There is no way to restore deleted fields!"""
         bioFields = await self.conf.guild(ctx.guild).biofields()
-        argField = " ".join(args)
+        argField = ' '.join(args)
         try:
             bioFields.remove(argField)
         except KeyError:
