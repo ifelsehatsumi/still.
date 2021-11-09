@@ -160,8 +160,8 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
-            geo = profileDict['Location, TZ']
-            if geo:
+            geo = profileDict.get['Location, TZ']
+            if geo != "":
                 loc = str("*" + geo + "*")
             else:
                 loc = "*Ask me for my location/tz*"
