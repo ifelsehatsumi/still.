@@ -117,7 +117,7 @@ class Bio(commands.Cog):
 
     async def _bio(self, ctx: commands.Context, user: Optional[str] = None, *args):
         bioFields = await self.conf.guild(ctx.guild).biofields()
-        server = await self.conf.guild(ctx.guild).name
+        server = ctx.guild
         key = None
         if re.search(r'<@!\d+>', str(user)):
             user = ctx.guild.get_member(int(user[3:-1]))
