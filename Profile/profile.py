@@ -159,7 +159,7 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
-            if profileDict[option] == "":
+            if profileDict.value == "":
                 await ctx.send(f"Imagine not having a profile. <:ang_giggle:894993173686943754> Type `k,profileoptions` to see a list of stuff you can you add and set one up.")
             return
             if profileDict['Location, TZ'] != "":
