@@ -64,6 +64,7 @@ class Bio(commands.Cog):
         argField = " ".join(args)
         try:
             bioFields.remove(argField)
+            bioFields.remove(""Steam Friend Code"")
         except KeyError:
             for field in bioFields:
                 if field.lower() == argField.lower():
