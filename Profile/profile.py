@@ -159,14 +159,15 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
+            if option == 'Location, TZ':
+                if value != "":
+                    geo = value 
+                else:
+                    geo = "Ask me for my location/tz"               
             if option == 'Intro':
                 if value != "":
                     headline = value                
-                    embed.add_field(name="*“" + headline + "”*", value="<:sh_space:755971083210981426>", inline=False)
-            if option == 'Location, TZ':
-                if value != "":
-                    geo = value                
-                    embed.add_field(name="Flourishing in . . .", value=geo, inline=False)
+                    embed.add_field(name="*“" + headline + "”*", value=geo, inline=False)
             if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ':
                 embed.add_field(name=option, value=value, inline=True)
             if option == 'Vibe':
