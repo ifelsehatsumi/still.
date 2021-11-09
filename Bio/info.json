@@ -1,0 +1,13 @@
+{
+    "author" : ["ifelsehatsumi"],
+    "install_msg" : "Thanks for installing bio. Use `[p]bio` to see your bio.\nUse `[p]bio fieldname some field text` to set profile info or `[p]bio @member` to view someone else's.\n\nYou can see all available profile fields with `[p]biofields`, `[p]biofields add [field]` and `[p]biofields remove [field]` to add/remove fields, and `[p]biosearch [field]` to see all users with a certain field.\n\nUse `[p]bioreset` to reset your profile.",
+    "name" : "Bio",
+    "short" : "Create in-server member profiles",
+    "description" : "Create an in-server profile and share it with others.",
+    "required_cogs": {},
+    "requirements": [],
+    "min_bot_version": "1.0.0",
+    "max_bot_version": "10.0.0",
+    "tags": [],
+    "type": "COG"
+}
