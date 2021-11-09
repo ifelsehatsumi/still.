@@ -18,7 +18,7 @@ UNIQUE_ID = 0x62696F68617A61723060
 class Bio(commands.Cog):
     """Add information to your player bio and lookup information others have shared.
     
-    See `[p]help bio` for detailed usage informaiton."""
+    See `[p]help bio` for details."""
     def __init__(self, bot: bot.Red, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.bot = bot
@@ -171,11 +171,15 @@ class Bio(commands.Cog):
                         warnings.append(f"Field '{arg}' not found")
             bioDict = data
         embed = discord.Embed()
-        embed.title = f"{user.display_name}'s Bio"
+        embed.title = f"{user.display_name}"
+        embed.description = ""
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for field, value in bioDict.items():
-            embed.add_field(name=field, value=value, inline=False)
+            embed.add_field(name=field, value=value, inline=True)
+            if field = 'CoverPhoto':
+                cover = value
+            embed.set_image(url=cover)
         await ctx.send(embed=embed)
 
     @commands.command()
