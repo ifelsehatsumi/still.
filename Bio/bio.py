@@ -12,7 +12,7 @@ log = logging.getLogger("red.cbd-cogs.bio")
 
 __all__ = ["UNIQUE_ID", "Bio"]
 
-UNIQUE_ID = 0x62696F68617A61726400
+UNIQUE_ID = 0x62696F68617A61723060
 
 
 class Bio(commands.Cog):
