@@ -177,11 +177,15 @@ class Bio(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for field, value in bioDict.items():
-            if field != 'CoverPhoto':
+            if field != 'Vibe':
                 embed.add_field(name=field, value=value, inline=True)
-            if field == 'CoverPhoto':
-                cover = value
-                embed.set_image(url=cover)
+            if field == 'Vibe':
+                if value != "":
+                    pic = value                
+                    embed.add_field(name=field, value="", inline=False)
+                else:
+                    pic = user.avatar_url
+                embed.set_image(url=pic)
         embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
 
