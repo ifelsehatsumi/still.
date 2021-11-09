@@ -163,19 +163,19 @@ class Profile(commands.Cog):
             geo = str(profileDict.get('Location, TZ'))
             headline = profileDict.get('Intro')
             if geo != "None":
-                loc = "*" + geo + "*"
+                loc = "*" + geo + "*\n"
                 if headline != "None":
                     if option == 'Intro':
                         headline = value                
-                        embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)
+                        embed.add_field(name="\n*“" + headline + "”*", value=loc, inline=False)
                 else:
                     embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
             else:
-                loc = "*Ask me for my location/tz*"
+                loc = "*Ask me for my location/tz*\n"
                 if headline != "None":
                     if option == 'Intro':
                         headline = value                
-                        embed.add_field(name="*“" + headline + "”*", value=loc, inline=False)
+                        embed.add_field(name="\n*“" + headline + "”*", value=loc, inline=False)
                 else:
                     embed.add_field(name="Flourishing in . . .", value=loc, inline=False)         
             if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ':
