@@ -1,0 +1,17 @@
+{
+    "name": "SteamCog",
+    "short": "Fetch various info about a Steam game.",
+    "description": "Fetch various info about a Steam game.",
+    "end_user_data_statement": "This cog does not persistently store data or metadata about users.",
+    "install_msg": "Thank you for installing this MEH cog.",
+    "author": [
+        "ifelsehatsumi"
+    ],
+    "required_cogs": {},
+    "requirements": [],
+    "tags": ["steam", "steamcog"],
+    "min_bot_version": "1.0.0",
+    "hidden": false,
+    "disabled": false,
+    "type": "COG"
+}
