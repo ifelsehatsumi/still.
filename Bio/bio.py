@@ -182,7 +182,7 @@ class Bio(commands.Cog):
             if field == 'CoverPhoto':
                 cover = value
                 embed.set_image(url=cover)
-        embed.set_colour = ctx.author.colour
+        embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
 
     @commands.command()
