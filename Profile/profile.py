@@ -159,13 +159,12 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
-            geo = profileDict['Location, TZ']
-            headlinetxt = profileDict['Intro']
-            if geo != "":
+            if profileDict['Location, TZ'] != "":
+                geo = profileDict['Location, TZ']
                 loc = str("*" + geo + "*")
             else:
-                loc = "*Ask me for my location/tz*"   
-            if headlinetxt == "":
+                loc = "*Ask me for my location/tz*"
+            if profileDict['Intro'] == "":
                 embed.add_field(name="Flourishing in . . .", value=loc, inline=False)
             if option == 'Intro':
                 if value != "":
