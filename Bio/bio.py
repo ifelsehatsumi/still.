@@ -59,11 +59,9 @@ class Bio(commands.Cog):
     @commands.guild_only()
     @checks.admin_or_permissions(manage_guild=True)
     async def remove_field(self, ctx:commands.Context, *args):
-        """Remove fields from bios and make them unavailable (DANGER!)
-        
-        USE WITH CAUTION: There is no way to restore deleted fields!"""
+        """Remove fields from bios"""
         bioFields = await self.conf.guild(ctx.guild).biofields()
-        argField = ' '.join(args)
+        argField = " ".join(args)
         try:
             bioFields.remove(argField)
         except KeyError:
