@@ -163,7 +163,11 @@ class Profile(commands.Cog):
                 if value != "":
                     headline = value                
                     embed.add_field(name="*“" + headline + "”*", value="<:sh_space:755971083210981426>", inline=False)
-            if option and option != 'Vibe' and option != 'Intro':
+            if option == 'Location, TZ':
+                if value != "":
+                    geo = value                
+                    embed.add_field(name="Flourishing in . . .", value=geo, inline=False)
+            if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ':
                 embed.add_field(name=option, value=value, inline=True)
             if option == 'Vibe':
                 if value != "":
