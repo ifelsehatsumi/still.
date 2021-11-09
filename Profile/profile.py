@@ -159,7 +159,7 @@ class Profile(commands.Cog):
         embed.set_thumbnail(url=user.avatar_url)
         embed.set_footer(text="\n".join(warnings))
         for option, value in profileDict.items():
-            geo = value[option['Location, TZ']]
+            geo = value['Location, TZ']
             #if option == 'Location, TZ':
             #    if value != "":
             #        geo = value 
