@@ -184,13 +184,11 @@ class Profile(commands.Cog):
                 embed.add_field(name=option, value=value, inline=False)       
             if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ' and option != 'Bio':
                 embed.add_field(name=option, value=value, inline=True)
-            urlcheck = "http"
-            if search(urlcheck, vibepic):
+            if re.search(r"\http", str(vibepic)):
                 find = "ok"
-                check = find
             else:
                 find = "not ok"
-                check = find
+            check = find
             if vibepic == "None" or check == "not ok":
                 embed.set_image(url=user.avatar_url)
             else:
