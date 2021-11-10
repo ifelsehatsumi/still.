@@ -164,6 +164,7 @@ class Profile(commands.Cog):
             geo = str(profileDict.get('Location, TZ'))
             headline = profileDict.get('Intro')
             vibepic = profileDict.get('Vibe')
+            about = profileDict.get('Bio')
             if geo != "None":
                 loc = "*" + geo + "*\n"
                 if headline != "None":
@@ -194,7 +195,7 @@ class Profile(commands.Cog):
             else:
                 if option == 'Vibe':
                     pic = value                
-                    embed.add_field(name=option, value="My curent vibe is . . .*\n<:sh_space:755971083210981426>", inline=False)
+                    embed.add_field(name=option, value="My curent vibe is . . .", inline=False)
                     embed.set_image(url=pic)
         embed.colour = ctx.author.colour
         await ctx.send(embed=embed)
