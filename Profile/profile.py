@@ -186,7 +186,7 @@ class Profile(commands.Cog):
             urlcheck = "http"
             if vibepic == "None":
                 embed.set_image(url=user.avatar_url)
-            if vibepic != "None" and vibepic.index(urlcheck) == False:
+            if vibepic != "None" and urlcheck not in vibepic:
                 embed.set_image(url=user.avatar_url)
             else:
                 if option == 'Vibe':
