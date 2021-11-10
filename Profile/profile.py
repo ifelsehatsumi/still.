@@ -184,7 +184,7 @@ class Profile(commands.Cog):
                 embed.add_field(name=option, value=value, inline=False)       
             if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ' and option != 'Bio':
                 embed.add_field(name=option, value=value, inline=True)
-            if re.search(r"\http", str(vibepic)):
+            if re.search(r"http", str(vibepic)):
                 find = "ok"
             else:
                 find = "not ok"
