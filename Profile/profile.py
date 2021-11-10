@@ -2,6 +2,7 @@
 import asyncio
 import logging
 import re
+from re import search
 from collections import namedtuple
 from typing import Optional, Union
 
@@ -184,9 +185,13 @@ class Profile(commands.Cog):
             if option and option != 'Vibe' and option != 'Intro' and option != 'Location, TZ' and option != 'Bio':
                 embed.add_field(name=option, value=value, inline=True)
             urlcheck = "http"
-            if vibepic == "None":
-                embed.set_image(url=user.avatar_url)
-            if vibepic != "None" and vibepic.find(urlcheck) == -1:
+            if search(urlcheck, vibepic):
+                find = "ok"
+                check = find
+            else:
+                find = "not ok"
+                check = find
+            if vibepic == "None" or check == "not ok":
                 embed.set_image(url=user.avatar_url)
             else:
                 if option == 'Vibe':
