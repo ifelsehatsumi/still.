@@ -50,7 +50,7 @@ class StillSupport(
             "category": 0,
             "archive": {"category": 0, "enabled": False},
             "dm": False,
-            "presetname": {"chosen": 0, "presets": ["ticket-{userid}"]},
+            "presetname": {"selected": 0, "presets": ["ticket-{userid}"]},
             "closeonleave": False,
             "closeafter": 0,
             "exemptlist": [],
@@ -391,7 +391,7 @@ class StillSupport(
         now = datetime.datetime.now(datetime.timezone.utc)
 
         channel_name = (
-            guild_settings["presetname"]["presets"][guild_settings["presetname"]["chosen"]]
+            guild_settings["presetname"]["presets"][guild_settings["presetname"]["selected"]]
             .replace("{user}", user.display_name)
             .replace("{userid}", str(user.id))
             .replace("{minute}", str(now.minute))
