@@ -10,11 +10,11 @@ from stillsupport.extensions.mixin import settings
 
 class StillSupportCloseSettingsMixin(MixinMeta):
     @settings.group()
-    async def closesettings(self, ctx):
+    async def closetickets(self, ctx):
         """Select settings required to close tickets"""
         pass
 
-    @closesettings.group()
+    @closetickets.group()
     async def archive(self, ctx):
         """Customize ticket archive settings"""
         pass
@@ -49,7 +49,7 @@ class StillSupportCloseSettingsMixin(MixinMeta):
         else:
             await ctx.send("Ticket archiving disabled.")
 
-    @closesettings.command()
+    @closetickets.command()
     async def reports(self, ctx, channel: discord.TextChannel = None):
         """Set a report channel to log opened and closed tickets. Leave blank to disable."""
         saving = getattr(channel, "id", 0)
@@ -60,7 +60,7 @@ class StillSupportCloseSettingsMixin(MixinMeta):
         else:
             await ctx.send(f"Report channel set to: {channel.mention}.")
 
-    @closesettings.command()
+    @closetickets.command()
     async def dm(self, ctx, yes_or_no: bool = None):
         """DM a member when their ticket is closed."""
         if yes_or_no is None:
@@ -72,7 +72,7 @@ class StillSupportCloseSettingsMixin(MixinMeta):
         else:
             await ctx.send("Ticket closed DM notifications disabled.")
 
-    @closesettings.command(name="closeonleave")
+    @closetickets.command(name="closeonleave")
     async def close_ticket_on_leave(self, ctx, toggle: Optional[bool] = None):
         """Close tickets if the member who opened it leaves."""
         if toggle is None:
@@ -86,7 +86,7 @@ class StillSupportCloseSettingsMixin(MixinMeta):
         else:
             await ctx.send("Tickets will remain open if the member who opened it leaves.")
 
-    @closesettings.command(name="prune", aliases=["cleanup", "purge"])
+    @closetickets.command(name="prune", aliases=["cleanup", "purge"])
     async def ticket_channel_prune(self, ctx, skip_confirmation: bool = False):
         """Remove all archived tickets. Must include `true` or `false` after the command."""
         category = self.bot.get_channel((await self.config.guild(ctx.guild).archive())["category"])
