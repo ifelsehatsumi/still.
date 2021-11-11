@@ -112,7 +112,7 @@ class StillSupportCloseSettingsMixin(MixinMeta):
                     await channel.delete()
                 except discord.Forbidden:
                     await ctx.send(
-                        "Oop. Make sure I have permission to view and manage channels.'
+                        "Oop. Make sure I have permission to view and manage channels."
                     )
                     return
                 except discord.HTTPException:
