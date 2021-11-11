@@ -203,7 +203,7 @@ class StillSupportBaseSettingsMixin(MixinMeta):
         presets = data["presets"]
         for index, preset in enumerate(presets):
             embed.description += (
-                f"**{index+1} {'(selected)' if index == data['chosen'] else ''}**: `{preset}`\n"
+                f"**{index+1} {'(selected)' if index == data['selected'] else ''}**: `{preset}`\n"
             )
 
         embed.set_footer(
@@ -243,7 +243,7 @@ class StillSupportBaseSettingsMixin(MixinMeta):
 
         if pred.result is True:
             async with self.config.guild(ctx.guild).presetname() as data:
-                data["chosen"] = len(data["presets"]) - 1
+                data["selected"] = len(data["presets"]) - 1
             await ctx.send("New name preset enabled.")
         else:
             await ctx.send(
@@ -257,14 +257,14 @@ class StillSupportBaseSettingsMixin(MixinMeta):
         """Delete a ticket name preset. You can't delete the currently enabled preset."""
         real_index = index
         settings = await self.config.guild(ctx.guild).presetname()
-        if settings["chosen"] == real_index:
+        if settings["selected"] == real_index:
             await ctx.send("You can't delete this . . .")
             return
 
         # I coded this in a shitty way... so we need to check if the one we are
         # removing it before the currently selected
-        if real_index < settings["chosen"]:
-            settings["chosen"] -= 1
+        if real_index < settings["selected"]:
+            settings["selected"] -= 1
 
         del settings["presets"][real_index]
         await self.config.guild(ctx.guild).presetname.set(settings)
@@ -277,7 +277,7 @@ class StillSupportBaseSettingsMixin(MixinMeta):
         Use `[p]stillsupport settings managetickets ticketnames list` to view available presets."""
         real_index = index - 1
         settings = await self.config.guild(ctx.guild).presetname()
-        if settings["chosen"] == real_index:
+        if settings["selected"] == real_index:
             await ctx.send("Umm... you're already using that preset.")
             return
 
@@ -287,7 +287,7 @@ class StillSupportBaseSettingsMixin(MixinMeta):
             )
             return
 
-        settings["chosen"] = real_index
+        settings["selected"] = real_index
         await self.config.guild(ctx.guild).presetname.set(settings)
         await ctx.send("New preset enabled.")
 
