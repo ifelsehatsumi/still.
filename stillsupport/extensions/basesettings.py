@@ -17,7 +17,11 @@ class StillSupportBaseSettingsMixin(MixinMeta):
 
     @pre_creation_settings.command()
     async def setmsg(self, ctx, message: discord.Message):
-        """Set the message that opens tickets upon react"""
+        """Set the message that opens tickets upon react. Available variables are:
+        
+        `{mention}`
+        `{username}`
+        `{id}"""
         if not message.channel.permissions_for(ctx.guild.me).manage_messages:
             await ctx.send(
                 'I must have "Manage Messages" permissions in that channel.'
