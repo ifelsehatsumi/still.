@@ -6,11 +6,11 @@ from stillsupport.extensions.mixin import settings
 
 class StillSupportUserSettingsMixin(MixinMeta):
     @settings.group()
-    async def userpermissions(self, ctx):
+    async def memberperms(self, ctx):
         """Customize what members can do with their own tickets"""
         pass
 
-    @userpermissions.command()
+    @memberperms.command()
     async def memberclose(self, ctx, yes_or_no: Optional[bool] = None):
         """Dis/allow members to close their own tickets."""
         if yes_or_no is None:
@@ -22,7 +22,7 @@ class StillSupportUserSettingsMixin(MixinMeta):
         else:
             await ctx.send("Only Staff can close tickets now.")
 
-    @userpermissions.command()
+    @memberperms.command()
     async def memberedit(self, ctx, yes_or_no: Optional[bool] = None):
         """Dis/allow members to add/remove others to their tickets."""
         if yes_or_no is None:
@@ -34,7 +34,7 @@ class StillSupportUserSettingsMixin(MixinMeta):
         else:
             await ctx.send("Only Staff can add/remove others to a ticket now.")
 
-    @userpermissions.command()
+    @memberperms.command()
     async def membername(self, ctx, yes_or_no: Optional[bool] = None):
         """Dis/allow members to name tickets they open."""
         if yes_or_no is None:
