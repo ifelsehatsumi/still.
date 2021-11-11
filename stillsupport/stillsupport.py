@@ -14,7 +14,7 @@ from abc import ABC
 from stillsupport.extensions.mixin import RTMixin
 from stillsupport.extensions.base import StillSupportBaseMixin
 from stillsupport.extensions.basesettings import StillSupportBaseSettingsMixin
-from stillsupport.extensions.closesettings import StillSupportCloseSettingsMixin
+from stillsupport.extensions.closeticketsimport StillSupportCloseSettingsMixin
 from stillsupport.extensions.usersettings import StillSupportUserSettingsMixin
 
 
