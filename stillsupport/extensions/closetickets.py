@@ -8,7 +8,7 @@ from stillsupport.extensions.abc import MixinMeta
 from stillsupport.extensions.mixin import settings
 
 
-class StillSupportCloseSettingsMixin(MixinMeta):
+class StillSupportCloseTicketsMixin(MixinMeta):
     @settings.group()
     async def closetickets(self, ctx):
         """Select settings required to close tickets"""
