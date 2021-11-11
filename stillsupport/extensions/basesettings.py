@@ -392,7 +392,7 @@ class StillSupportBaseSettingsMixin(MixinMeta):
             if not archive["category"]:
                 await ctx.send(
                     "Archive enabled, but no archive category is set. Set one with "
-                    f"`{ctx.prefix}stillsupport settings closesettings archive category`."
+                    f"`{ctx.prefix}stillsupport settings closeticketsarchive category`."
                 )
                 return
 
@@ -400,7 +400,7 @@ class StillSupportBaseSettingsMixin(MixinMeta):
             if not archive_category:
                 await ctx.send(
                     "Archive enabled, but archive category was deleted. Set a new one with "
-                    f"`{ctx.prefix}stillsupport settings closesettings archive category`."
+                    f"`{ctx.prefix}stillsupport settings closeticketsarchive category`."
                 )
                 return
 
@@ -411,7 +411,7 @@ class StillSupportBaseSettingsMixin(MixinMeta):
             if not report_channel:
                 await ctx.send(
                     "Reporting enabled, but report channel has been deleted. Please reset it with "
-                    f"`{ctx.prefix}stillsupport settings closesettings reports`."
+                    f"`{ctx.prefix}stillsupport settings closeticketsreports`."
                 )
 
             if not report_channel.permissions_for(ctx.guild.me).send_messages:
