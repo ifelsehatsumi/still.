@@ -14,7 +14,7 @@ from abc import ABC
 from stillsupport.extensions.mixin import RTMixin
 from stillsupport.extensions.base import StillSupportBaseMixin
 from stillsupport.extensions.basesettings import StillSupportBaseSettingsMixin
-from stillsupport.extensions.closeticketsimport StillSupportCloseSettingsMixin
+from stillsupport.extensions.closeticketsimport StillSupportCloseTicketsMixin
 from stillsupport.extensions.usersettings import StillSupportUserSettingsMixin
 
 
@@ -26,7 +26,7 @@ class CompositeMetaClass(type(commands.Cog), type(ABC)):
 class StillSupport(
     StillSupportBaseMixin,
     StillSupportBaseSettingsMixin,
-    StillSupportCloseSettingsMixin,
+    StillSupportCloseTicketsMixin,
     StillSupportUserSettingsMixin,
     RTMixin,
     commands.Cog,
