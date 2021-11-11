@@ -1,0 +1,19 @@
+{
+    "author": [
+        "elseifhatsumi"
+    ],
+    "install_msg": "Thank you for installing still. support. To load it, type `[p]load stillsupport`. Then use `[p]help StillSupport` for instructions.",
+    "name": "stillsupport",
+    "short": "Let members open tickets by reacting to a message.",
+    "description": "Let members open tickets by reacting to a message. The tickets are private channels on the member and staff have access to.",
+    "tags": [
+        "tools",
+        "support",
+        "help",
+        "ticketing",
+        "tickets",
+        "utility"
+    ],
+    "requirements": [],
+    "hidden": false
+}
