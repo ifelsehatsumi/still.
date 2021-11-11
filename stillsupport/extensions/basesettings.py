@@ -247,9 +247,9 @@ class StillSupportBaseSettingsMixin(MixinMeta):
             await ctx.send("New name preset enabled.")
         else:
             await ctx.send(
-                "No name preset enabled. Use "
+                "No change to name preset. Use "
                 f"`{ctx.prefix}stillsupport settings managetickets "
-                f"ticketname select {len(data['presets'])}`."
+                f"ticketname select {len(data['presets'])}` if desired."
             )
 
     @ticket_names.command(name="remove", aliases=["delete"])
