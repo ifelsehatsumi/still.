@@ -401,7 +401,7 @@ class StillSupport(
             .replace("{month_name}", now.strftime("%B"))
             .replace("{month}", str(now.month))
             .replace("{year}", str(now.year))
-            .replace("{random}", str(random.randint(1, 100000)))
+            .replace("{random}", str(random.randint(100000, 999999)))
         )[:100]
 
         created_channel = await category.create_text_channel(channel_name, overwrites=overwrites)
