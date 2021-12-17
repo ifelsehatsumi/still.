@@ -167,7 +167,7 @@ class AutoRoomCommands(MixinMeta, ABC, metaclass=CompositeMetaClass):
         for target in member_or_role:
             if target in overwrites:
                 if overwrites[target].view_channel != allow:
-                    overwrites[target].update(view_channel=allow)
+                    overwrites[target].update(view_channel=True)
                     do_edit = True
                 if overwrites[target].connect != allow:
                     overwrites[target].update(connect=allow)
@@ -179,7 +179,6 @@ class AutoRoomCommands(MixinMeta, ABC, metaclass=CompositeMetaClass):
                 overwrites[target] = discord.PermissionOverwrite(
                     view_channel=True
                 )
-                #overwrites[target].update(view_channel=allow)
                 do_edit = True
         if do_edit:
             await channel.edit(
