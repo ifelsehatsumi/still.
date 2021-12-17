@@ -162,7 +162,6 @@ class AutoRoomCommands(MixinMeta, ABC, metaclass=CompositeMetaClass):
 
         overwrites = dict(channel.overwrites)
         overwrites.update(view_channel=allow)
-        overwrites.update(connect=deny)
         do_edit = False
         if not isinstance(member_or_role, list):
             member_or_role = [member_or_role]
