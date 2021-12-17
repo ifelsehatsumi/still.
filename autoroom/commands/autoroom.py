@@ -176,6 +176,7 @@ class AutoRoomCommands(MixinMeta, ABC, metaclass=CompositeMetaClass):
                 overwrites[target] = discord.PermissionOverwrite(
                     view_channel=allow, connect=allow
                 )
+                overwrites[target].update(view_channel=allow)
                 do_edit = True
         if do_edit:
             await channel.edit(
