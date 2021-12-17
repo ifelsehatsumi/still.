@@ -67,7 +67,7 @@ class AutoRoomCommands(MixinMeta, ABC, metaclass=CompositeMetaClass):
     @room.command()
     async def lock(self, ctx: commands.Context):
         """Lock your door, dude. No one can get in that's not already."""
-        await self._process_allow_deny(ctx, False, view_channel=True)
+        await self._process_allow_deny(ctx, True)
 
     @room.command(aliases=["add"])
     async def openfor(
