@@ -67,9 +67,7 @@ class AutoRoomCommands(MixinMeta, ABC, metaclass=CompositeMetaClass):
     @room.command()
     async def lock(self, ctx: commands.Context):
         """Lock your door, dude. No one can get in that's not already."""
-        await self._process_allow_deny(True, False):
-            ctx.True = True
-            ctx.False = False
+        await self._process_allow_deny(ctx, False)
 
     @room.command(aliases=["add"])
     async def openfor(
@@ -176,7 +174,10 @@ class AutoRoomCommands(MixinMeta, ABC, metaclass=CompositeMetaClass):
                     do_edit = True
             else:
                 overwrites[target] = discord.PermissionOverwrite(
-                    view_channel=allow, connect=allow
+                    connect=allow
+                )
+                overwrites[target] = discord.PermissionOverwrite(
+                    view_channel=True
                 )
                 #overwrites[target].update(view_channel=allow)
                 do_edit = True
