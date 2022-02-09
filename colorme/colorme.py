@@ -147,7 +147,7 @@ class ColorMe(commands.Cog):
                                                    colour=discord.Colour(int(newcolor, 16)),
                                                    hoist=False,
                                                    permissions=discord.Permissions.none())
-                await guild.role_edit(position=6)
+
             except discord.Forbidden:
                 await ctx.send("Failed to create new role. (permissions)")
                 return
@@ -164,6 +164,10 @@ class ColorMe(commands.Cog):
                 await ctx.send("Failed to apply new role. (request failed)")
                 return
             # Change to reply?
+            guild = client.get_guild(GuildID)
+            roletomove = get(guild.roles, name=rolename) # Get the role
+            await role.edit(server=guild, role=roletomove, position=6)
+            await guild.move_role(position=6)
             await ctx.send("Your new color is set.")
         else:
             # Member appears to have an existing ColorMe role
