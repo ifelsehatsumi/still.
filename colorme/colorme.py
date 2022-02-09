@@ -165,9 +165,7 @@ class ColorMe(commands.Cog):
                 return
             # Change to reply?
             #guild = client.get_guild(GuildID)
-            roletomove = get(guild.roles, name=rolename) # Get the role
-            await role.edit(server=guild, role=roletomove, position=6)
-            await guild.move_role(position=6)
+            await role.edit(server=guild, role=rolename, position=6)
             await ctx.send("Your new color is set.")
         else:
             # Member appears to have an existing ColorMe role
