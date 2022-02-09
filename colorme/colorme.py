@@ -164,7 +164,9 @@ class ColorMe(commands.Cog):
                 await ctx.send("Failed to apply new role. (request failed)")
                 return
             # Change to reply?
-            await new_role.edit(position=6)
+            all_roles = await guild.fetch_roles()
+            num_roles = len(all_roles)
+            await new_role.edit(position=num_roles)
             await ctx.send("Your new color is set.")
         else:
             # Member appears to have an existing ColorMe role
