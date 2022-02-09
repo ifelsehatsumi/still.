@@ -164,7 +164,7 @@ class ColorMe(commands.Cog):
                 await ctx.send("Failed to apply new role. (request failed)")
                 return
             # Change to reply?
-            guild = client.get_guild(GuildID)
+            #guild = client.get_guild(GuildID)
             roletomove = get(guild.roles, name=rolename) # Get the role
             await role.edit(server=guild, role=roletomove, position=6)
             await guild.move_role(position=6)
