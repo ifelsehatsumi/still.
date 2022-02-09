@@ -146,9 +146,8 @@ class ColorMe(commands.Cog):
                                                    name=rolename,
                                                    colour=discord.Colour(int(newcolor, 16)),
                                                    hoist=False,
-                                                   position=6
+                                                   position=6,
                                                    permissions=discord.Permissions.none())
-                await guild.move_role(position=6)
             except discord.Forbidden:
                 await ctx.send("Failed to create new role. (permissions)")
                 return
