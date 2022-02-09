@@ -145,7 +145,8 @@ class ColorMe(commands.Cog):
                 new_role = await guild.create_role(reason='Custom ColorMe Role',
                                                    name=rolename,
                                                    colour=discord.Colour(int(newcolor, 16)),
-                                                   hoist=True,
+                                                   hoist=False,
+                                                   position=6
                                                    permissions=discord.Permissions.none())
                 await guild.move_role(position=6)
             except discord.Forbidden:
