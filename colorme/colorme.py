@@ -174,7 +174,7 @@ class ColorMe(commands.Cog):
             # Need to make sure they are not sharing with someone else
             if not self._is_sharing_role(ctx, role_to_change):
                 all_roles = await guild.fetch_roles()
-                num_roles = len(all_roles) - 26
+                num_roles = len(all_roles) - 2
                 try:
                     await role_to_change.edit(colour=discord.Colour(int(newcolor, 16)), reason='ColorMe Change')
                     await role_to_change.edit(position=num_roles)
