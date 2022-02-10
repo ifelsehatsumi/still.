@@ -167,7 +167,7 @@ class ColorMe(commands.Cog):
             all_roles = await guild.fetch_roles()
             num_roles = len(all_roles) - 2
             print(f'The server has {num_roles} roles.')
-            await new_role.edit(position=int(num_roles - 2))
+            await new_role.edit(position=num_roles)
             await ctx.send("Your new color is set.")
         else:
             # Member appears to have an existing ColorMe role
