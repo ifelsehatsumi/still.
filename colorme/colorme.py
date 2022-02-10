@@ -165,7 +165,7 @@ class ColorMe(commands.Cog):
                 return
             # Change to reply?
             all_roles = await guild.fetch_roles()
-            num_roles = len(all_roles) - 1
+            num_roles = len(all_roles) - 2
             await new_role.edit(position=num_roles)
             await ctx.send("Your new color is set.")
         else:
