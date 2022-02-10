@@ -95,8 +95,8 @@ class ColorMe(commands.Cog):
     async def _change_colorme(self, ctx: commands.Context, newcolor: str):
         """Change the color of your name.
 
-        `newcolor` must be a hex code like `#990000` or `990000`, a [Discord color name](https://discordpy.readthedocs.io/en/latest/api.html#colour),
-        or a [CSS3 color name](https://www.w3.org/TR/2018/REC-css-color-3-20180619/#svg-color).
+        `newcolor` must be a hex code like `#FDBB75` or `FDBB75` or a [Discord color name](https://discordpy.readthedocs.io/en/latest/api.html#colour).
+        You can generate random colors or pick your own [here!](https://coolors.co/generate).
         """
         guild = ctx.message.guild
         member = ctx.message.author
@@ -110,10 +110,9 @@ class ColorMe(commands.Cog):
         newcolor = self._color_converter(newcolor)
         if not newcolor:
             await ctx.send(
-                "Not a valid color code. Use a hex code like #990000, a "
-                "Discord color name or a CSS3 color name.\n"
-                "<https://discordpy.readthedocs.io/en/latest/api.html#colour>\n"
-                "<https://www.w3.org/TR/2018/REC-css-color-3-20180619/#svg-color>"
+                "<:look_phone:893502905200549890> That's not a real color! Use a hex code like #FDBB75 or FDBB75 or a "
+                "Discord color name: <https://discordpy.readthedocs.io/en/latest/api.html#colour>\n"
+                "You can generate random colors or pick your own here: https://coolors.co/generate"
             )
             return
 
