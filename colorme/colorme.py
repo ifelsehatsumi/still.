@@ -165,25 +165,25 @@ class ColorMe(commands.Cog):
                 return
             # Change to reply?
             all_roles = await guild.fetch_roles()
-            num_roles = len(all_roles) - 1
+            num_roles = len(all_roles) - 2
             print(f'The server has {num_roles} roles.')
-            #await new_role.edit(position=30)
+            await new_role.edit(position=num_roles)
             await ctx.send("Your new color is set. role #{num_roles}")
         else:
             # Member appears to have an existing ColorMe role
             # Need to make sure they are not sharing with someone else
             if not self._is_sharing_role(ctx, role_to_change):
+                all_roles = await guild.fetch_roles()
+                num_roles = len(all_roles) - 2
                 try:
-                    await role_to_change.edit(colour=discord.Colour(int(newcolor, 16)), reason='ColorMe Change')
+                    await role_to_change.edit(colour=discord.Colour(int(newcolor, 16)), reason='ColorMe Change', position=int(num_roles))
                 except discord.Forbidden:
                     return await ctx.send("Failed to edit role. (permissions)")
                 except discord.HTTPException:
                     return await ctx.send("Failed to edit role. (request failed)")
                 # Change to reply?
-                all_roles = await guild.fetch_roles()
-                num_roles = len(all_roles) - 1
                 print(f'The server has {num_roles} roles.')
-                await ctx.send("Your new color is set.")
+                await ctx.send("Your new color is set. role #{num_roles}")
             else:
                 # Change to reply?
                 await ctx.send("This is odd. It looks like you have a "
