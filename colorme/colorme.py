@@ -165,7 +165,7 @@ class ColorMe(commands.Cog):
                 return
             # Change to reply?
             all_roles = await guild.fetch_roles()
-            num_roles = len(all_roles)
+            num_roles = len(all_roles) - 1
             print(f'The server has {num_roles} roles.')
             #await new_role.edit(position=30)
             await ctx.send("Your new color is set. role #{num_roles}")
@@ -181,7 +181,7 @@ class ColorMe(commands.Cog):
                     return await ctx.send("Failed to edit role. (request failed)")
                 # Change to reply?
                 all_roles = await guild.fetch_roles()
-                num_roles = len(all_roles)
+                num_roles = len(all_roles) - 1
                 print(f'The server has {num_roles} roles.')
                 await ctx.send("Your new color is set.")
             else:
