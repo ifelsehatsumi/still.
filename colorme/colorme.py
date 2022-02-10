@@ -168,7 +168,7 @@ class ColorMe(commands.Cog):
             num_roles = len(all_roles)
             print(f'The server has {num_roles} roles.')
             #await new_role.edit(position=30)
-            await ctx.send("Your new color is set.")
+            await ctx.send("Your new color is set. role #{num_roles}")
         else:
             # Member appears to have an existing ColorMe role
             # Need to make sure they are not sharing with someone else
