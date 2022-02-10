@@ -177,7 +177,7 @@ class ColorMe(commands.Cog):
                 num_roles = len(all_roles)
                 try:
                     await role_to_change.edit(colour=discord.Colour(int(newcolor, 16)), reason='ColorMe Change')
-                    await role_to_change.edit(position=int(29))
+                    await role_to_change.edit(position=int(30))
                 except discord.Forbidden:
                     return await ctx.send("Failed to edit role. (permissions)")
                 except discord.HTTPException:
