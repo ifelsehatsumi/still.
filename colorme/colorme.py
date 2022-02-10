@@ -174,9 +174,9 @@ class ColorMe(commands.Cog):
             # Need to make sure they are not sharing with someone else
             if not self._is_sharing_role(ctx, role_to_change):
                 all_roles = await guild.fetch_roles()
-                num_roles = len(all_roles) - 1
+                num_roles = len(all_roles)
                 try:
-                    await role_to_change.edit(colour=discord.Colour(int(newcolor, 16)), reason='ColorMe Change', position=int(num_roles))
+                    await role_to_change.edit(colour=discord.Colour(int(newcolor, 16)), reason='ColorMe Change', position=int(num_roles - 2))
                 except discord.Forbidden:
                     return await ctx.send("Failed to edit role. (permissions)")
                 except discord.HTTPException:
