@@ -168,7 +168,7 @@ class ColorMe(commands.Cog):
             pos = top_role.position
             print(f'The server has {num_roles} roles.')
             print(f'The top role of the current member is {pos}.')
-            await new_role.edit(position=pos + 1)
+            await new_role.edit(position=colorpos)
             await ctx.send("Your new color is set.")
         else:
             # Member appears to have an existing ColorMe role
@@ -177,9 +177,10 @@ class ColorMe(commands.Cog):
                 all_roles = await guild.fetch_roles()
                 num_roles = int(len(all_roles) - 2)
                 pos = top_role.position
+                colorpos = int(pos + 1)
                 try:
                     await role_to_change.edit(colour=discord.Colour(int(newcolor, 16)), reason='ColorMe Change')
-                    await role_to_change.edit(position=pos + 1)
+                    await role_to_change.edit(position=colorpos)
                 except discord.Forbidden:
                     return await ctx.send("Failed to edit role. (permissions)")
                 except discord.HTTPException:
