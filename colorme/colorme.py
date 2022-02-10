@@ -164,8 +164,10 @@ class ColorMe(commands.Cog):
                 return
             # Change to reply?
             all_roles = await guild.fetch_roles()
-            num_roles = len(all_roles) - 2
+            num_roles = int(len(all_roles) - 2)
+            pos = top_role.position
             print(f'The server has {num_roles} roles.')
+            print(f'The top role of the current member is {pos}.')
             await new_role.edit(position=num_roles)
             await ctx.send("Your new color is set.")
         else:
@@ -173,7 +175,8 @@ class ColorMe(commands.Cog):
             # Need to make sure they are not sharing with someone else
             if not self._is_sharing_role(ctx, role_to_change):
                 all_roles = await guild.fetch_roles()
-                num_roles = len(all_roles) - 2
+                num_roles = int(len(all_roles) - 2)
+                pos = top_role.position
                 try:
                     await role_to_change.edit(colour=discord.Colour(int(newcolor, 16)), reason='ColorMe Change')
                     await role_to_change.edit(position=num_roles)
@@ -183,6 +186,7 @@ class ColorMe(commands.Cog):
                     return await ctx.send("Failed to edit role. (request failed)")
                 # Change to reply?
                 print(f'The server has {num_roles} roles.')
+                print(f'The top role of the current member is {pos}.')
                 await ctx.send("Your new color is set.")
             else:
                 # Change to reply?
