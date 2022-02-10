@@ -180,6 +180,9 @@ class ColorMe(commands.Cog):
                 except discord.HTTPException:
                     return await ctx.send("Failed to edit role. (request failed)")
                 # Change to reply?
+                all_roles = await guild.fetch_roles()
+                num_roles = len(all_roles)
+                print(f'The server has {num_roles} roles.')
                 await ctx.send("Your new color is set.")
             else:
                 # Change to reply?
